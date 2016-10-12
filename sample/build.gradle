@@ -27,3 +27,9 @@ dependencies {
     compile project(':library')
     compile 'joda-time:joda-time:2.1'
 }
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
