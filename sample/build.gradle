@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-maven'
 apply from: 'https://raw.githubusercontent.com/shamanland/gradle-mvn-push/master/gradle-mvn-push.gradle' //contains fix for javadoc issues
 
 android {
@@ -26,4 +27,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':library')
     compile 'joda-time:joda-time:2.1'
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
