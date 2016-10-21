@@ -40,6 +40,7 @@ import android.widget.TextView;
 import com.codetroopers.betterpickers.HapticFeedbackController;
 import com.codetroopers.betterpickers.R;
 import com.codetroopers.betterpickers.Utils;
+import com.codetroopers.betterpickers.common.Hour;
 import com.codetroopers.betterpickers.numberpicker.NumberPickerErrorTextView;
 import com.codetroopers.betterpickers.radialtimepicker.RadialPickerLayout.OnValueSelectedListener;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -138,9 +139,8 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         /**
          * @param dialog    The view associated with this listener.
          * @param hourOfDay The hour that was set.
-         * @param minute    The minute that was set.
          */
-        void onTimeSet(RadialTimePickerDialogFragment dialog, int hourOfDay, int minute);
+        void onTimeSet(RadialTimePickerDialogFragment dialog, Hour hourOfDay);
     }
 
     public static interface OnDialogDismissListener {
@@ -574,7 +574,7 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             }
         } else {
             if (mCallback != null) {
-                mCallback.onTimeSet(RadialTimePickerDialogFragment.this, mTimePicker.getHours(), mTimePicker.getMinutes());
+                mCallback.onTimeSet(RadialTimePickerDialogFragment.this, new Hour(mTimePicker.getHours()));
             }
             dismiss();
         }

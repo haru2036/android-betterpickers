@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: 'https://raw.githubusercontent.com/shamanland/gradle-mvn-push/master/gradle-mvn-push.gradle' //contains fix for javadoc issues
+apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
 
 buildscript{
     repositories {
@@ -41,6 +42,7 @@ android {
                 srcDir 'assets'
             }
         }
+        main.java.srcDirs += 'src/main/kotlin'
     }
 
     lintOptions {
@@ -52,13 +54,20 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.android.support:appcompat-v7:23.4.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 publish {
-    userOrg = 'haru2036'
-    groupId = 'com.haru2036'
-    artifactId = 'bintray-release'
-    publishVersion = '0.4.3'
-    desc = 'this is a fork of betterpickers library, but it contains radial time picker only'
+    groupId = 'com.haru2036.android'
+    artifactId = 'betterpickers'
+    publishVersion = '4.0.3'
+    uploadName = 'Betterpickers'
     website = 'https://github.com/haru2036/android-betterpickers'
+}
+
+afterEvaluate {
+    tasks.findByPath(":library:mavenAndroidJavadocs").enabled = false
+}
+repositories {
+    mavenCentral()
 }

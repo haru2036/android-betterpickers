@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.codetroopers.betterpickers.common.Hour;
 import com.codetroopers.betterpickers.radialtimepicker.RadialTimePickerDialogFragment;
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
@@ -37,8 +38,8 @@ public class SampleRadialTimeBasicUsage extends BaseSampleActivity
     }
 
     @Override
-    public void onTimeSet(RadialTimePickerDialogFragment dialog, int hourOfDay, int minute) {
-        mResultTextView.setText(getString(R.string.radial_time_picker_result_value, hourOfDay, minute));
+    public void onTimeSet(RadialTimePickerDialogFragment dialog, Hour hourOfDay) {
+        mResultTextView.setText(getString(R.string.radial_time_picker_result_value, hourOfDay.getHour(), 0));
     }
 
     @Override
