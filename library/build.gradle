@@ -60,7 +60,7 @@ dependencies {
 publish {
     groupId = 'com.haru2036.android'
     artifactId = 'betterpickers'
-    publishVersion = '4.0.3'
+    publishVersion = '5.1.0'
     uploadName = 'Betterpickers'
     website = 'https://github.com/haru2036/android-betterpickers'
 }

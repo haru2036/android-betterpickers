@@ -11,4 +11,20 @@ class Hour(@IntRange(from=0,to=23) hourOfDay :Int){
     }else{
         hourOfDay
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other?.javaClass != javaClass) return false
+
+        other as Hour
+
+        if (hour != other.hour) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return hour
+    }
+
 }
