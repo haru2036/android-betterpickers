@@ -703,7 +703,7 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
                             }
                         }
                         setValueForItem(getCurrentItemShowing(), value);
-                        mListener.onValueSelected(getCurrentItemShowing(), value, false);
+                        mListener.onValueSelected(getCurrentItemShowing(), value, true);
                     }
                 }
                 mDoingMove = false;

@@ -148,6 +148,13 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
         public abstract void onDialogDismiss(DialogInterface dialoginterface);
     }
 
+
+    public static RadialTimePickerDialogFragment newInstance(boolean allowAutoAdvance){
+        RadialTimePickerDialogFragment fragment = new RadialTimePickerDialogFragment();
+        fragment.mAllowAutoAdvance = allowAutoAdvance;
+        return fragment;
+    }
+
     public RadialTimePickerDialogFragment() {
         Calendar calendar = Calendar.getInstance();
         mInitialMinute = calendar.get(Calendar.MINUTE);
@@ -432,7 +439,6 @@ public class RadialTimePickerDialogFragment extends DialogFragment implements On
             });
         }
 
-        mAllowAutoAdvance = true;
         setHour(mInitialHourOfDay, true);
         setMinute(mInitialMinute);
 

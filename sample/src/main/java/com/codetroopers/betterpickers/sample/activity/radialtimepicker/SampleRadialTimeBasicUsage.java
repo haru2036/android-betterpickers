@@ -30,7 +30,7 @@ public class SampleRadialTimeBasicUsage extends BaseSampleActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
+                RadialTimePickerDialogFragment rtpd = RadialTimePickerDialogFragment.newInstance(false)
                         .setOnTimeSetListener(SampleRadialTimeBasicUsage.this);
                 rtpd.show(getSupportFragmentManager(), FRAG_TAG_TIME_PICKER);
             }
